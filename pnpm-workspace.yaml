@@ -1,3 +1,11 @@
 packages:
   - apps/*
   - packages/*
+
+# Dependencies allowed to run install scripts (pnpm 12 reads this here, not from package.json)
+allowBuilds:
+  esbuild: true
+  sharp: true
+  '@tailwindcss/oxide': true
+  unrs-resolver: true
+  core-js: false
