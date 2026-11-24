@@ -1,0 +1,34 @@
+{
+  "name": "homefi-ng",
+  "private": true,
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm --filter web dev",
+    "build": "pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "worker": "pnpm --filter worker dev",
+    "db:start": "pnpm dlx supabase start",
+    "db:reset": "pnpm dlx supabase db reset",
+    "db:types": "pnpm dlx supabase gen types typescript --local > packages/db/src/database.types.ts",
+    "import:legacy": "pnpm --filter worker exec tsx --env-file=.env src/scripts/import-legacy.ts"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "@tailwindcss/oxide",
+      "unrs-resolver"
+    ]
+  }
+}
